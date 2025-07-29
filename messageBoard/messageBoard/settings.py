@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+from django.conf.global_settings import STATICFILES_DIRS
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,16 +91,17 @@ WSGI_APPLICATION = 'messageBoard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'default1': {
-        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'messagedb',
         'USER': 'root',
         'PASSWORD': '@Lmy6013',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-    }
+    },
+    'default1': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+
 }
 
 
@@ -137,6 +140,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
