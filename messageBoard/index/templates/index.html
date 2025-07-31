@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
 
-</body>
-</html>
+<div class="hello-form">
+    <form action="" method="post" class="form" role="form">
+        <input name="csrfmiddlexaretoken" type="hidden" value="{{ csrf_token }}">
+        <div class="form-group required">
+            <label class="form-control-label" for="name">名称</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>    
+    </form>
+</div>
+
+
+{% endblock %}
