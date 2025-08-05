@@ -12,7 +12,7 @@ def page_error(request):
     return render(request,'500.html',status=500)
 
 def index(request):
-    message=Message.objects.all().order_by('-id')
+    messages=Message.objects.all().order_by('-id')
     if request.method=='POST':
         form=MessageForm(request.POST)
         if form.is_valid():

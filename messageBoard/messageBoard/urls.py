@@ -15,11 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
+from django.views.static import serve
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('index.urls')),
+    # 设置静态资源的路由信息
+    re_path('static/(?P<path>.*)',serve,{'document_root':settings.STATIC_ROOT},name='static')
 ]
 # 设置404、500错误状态码
 from index import views
