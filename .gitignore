@@ -2,5 +2,6 @@
 .idea/
 #忽略 .venv 目录下的所有文件
 .venv/
+__pycache__/
 
 
