@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Message
-from .form import MessageModelForm
+from .form import MessageForm
 
 # Create your views here.
 
@@ -14,7 +14,7 @@ def page_error(request):
 def index(request):
     message=Message.objects.all().order_by('-id')
     if request.method=='POST':
-        form=MessageModelForm(request.POST)
+        form=MessageForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('/')
